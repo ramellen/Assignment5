@@ -1,5 +1,6 @@
 import './App.css'
 import {TaxStatusOO, Single, Married, Separated, Context} from "./TaxStatusOO.ts";
+import {marriedTax, selectTaxStrategy, separatedTax, singleTax} from "./TaxStatusFP.ts";
 
 function App() {
     const income: number = Number(prompt("Enter your income", "0"));
@@ -24,11 +25,11 @@ function App() {
     const separatedTaxOO: number = taxStatusSelection.calculateTax(income);
 
 
-/*    // Functional programming code.
+    // Functional programming code.
     // Calculate the tax using the higher-order function selectTaxStrategy()
     const singleTaxFP: number = selectTaxStrategy(singleTax, income);
     const marriedTaxFP: number = selectTaxStrategy(marriedTax, income);
-    const separatedTaxFP: number = selectTaxStrategy(separatedTax, income);*/
+    const separatedTaxFP: number = selectTaxStrategy(separatedTax, income);
 
     // Fill in the variables for the code below
     return (
@@ -41,9 +42,9 @@ function App() {
 
             <h2>Tax Strategy Pattern - Functional Programming</h2>
             <b>For an income of ${}, the tax is</b>
-            <br/><b>${}</b> for a <b>single</b> person
-            <br/><b>${}</b> for a <b>married</b> couple
-            <br/><b>${}</b> for a <b>married couple filing separately</b>
+            <br/><b>${singleTaxFP}</b> for a <b>single</b> person
+            <br/><b>${marriedTaxFP}</b> for a <b>married</b> couple
+            <br/><b>${separatedTaxFP}</b> for a <b>married couple filing separately</b>
         </>
     );
 }
